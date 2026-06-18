@@ -1,0 +1,82 @@
+/* ============================================================
+   MASELKO · COLOR TOKENS
+   Warm, appetizing, family-food palette: brick-red wordmark on
+   buttery gold + cream, anchored by near-black ink.
+   Values sampled directly from the 2025 brand guidelines.
+   ============================================================ */
+
+:root {
+  /* ---- Brand: Red (primary) ---- */
+  --red-900: #5e120d;   /* deepest, pressed states on red */
+  --red-800: #7a1812;   /* hover on primary */
+  --red-700: #921e17;   /* PRIMARY — wordmark & headline red */
+  --red-500: #c8271a;   /* mid red */
+  --red-400: #e22b19;   /* bright accent red (CTAs, energy) */
+  --red-300: #fb2d18;   /* hottest accent (sparingly) */
+
+  /* ---- Brand: Butter gold ---- */
+  --gold-700: #c97f1f;  /* deep gold, text on cream */
+  --gold-600: #e8a23d;  /* gold hover / borders */
+  --gold-500: #ffcd82;  /* PRIMARY gold — badges, highlights */
+  --gold-300: #ffe0ad;  /* soft gold tint */
+
+  /* ---- Brand: Cream (surfaces) ---- */
+  --cream-500: #f7e4cb; /* PRIMARY cream surface */
+  --cream-300: #faeedc; /* lighter cream */
+  --cream-200: #fde9d5; /* lightest warm tint */
+  --cream-100: #fdf6ec; /* near-white warm */
+
+  /* ---- Ink / neutrals ---- */
+  --ink-900: #0f0e0e;   /* primary text, true brand black */
+  --ink-700: #2a2522;   /* warm dark */
+  --ink-500: #6b6460;   /* secondary text */
+  --ink-300: #a39c97;   /* muted / placeholder */
+  --neutral-200: #dcdfdd;
+  --neutral-100: #e1e4e2;
+  --neutral-50:  #f7f6f6;
+  --white: #ffffff;
+
+  /* ---- Status (from guideline accents) ---- */
+  --success: #3b9741;
+  --info:    #0f3c76;
+  --warning: #e17125;
+  --accent-yellow: #f6e440;
+
+  /* ============================================================
+     SEMANTIC ALIASES — reference these in components
+     ============================================================ */
+
+  /* Surfaces */
+  --surface-page:     var(--cream-300);   /* default warm page bg */
+  --surface-card:     var(--white);
+  --surface-raised:   var(--cream-100);
+  --surface-cream:    var(--cream-500);
+  --surface-gold:     var(--gold-500);
+  --surface-brand:    var(--red-700);     /* brand-red fill */
+  --surface-ink:      var(--ink-900);
+
+  /* Text */
+  --text-strong:  var(--ink-900);
+  --text-body:    var(--ink-700);
+  --text-muted:   var(--ink-500);
+  --text-faint:   var(--ink-300);
+  --text-on-brand:var(--cream-300);       /* cream text on red */
+  --text-on-gold: var(--red-700);         /* red text on gold */
+  --text-brand:   var(--red-700);         /* headline / link red */
+
+  /* Lines */
+  --border-soft:   rgba(15,14,14,0.10);
+  --border-strong: rgba(15,14,14,0.22);
+  --border-gold:   var(--gold-600);
+  --border-brand:  var(--red-700);
+
+  /* Interactive */
+  --action:        var(--red-700);
+  --action-hover:  var(--red-800);
+  --action-press:  var(--red-900);
+  --action-accent: var(--red-400);
+  --focus-ring:    rgba(146,30,23,0.40);
+
+  /* Status semantics */
+  --danger:  var(--red-400);
+}

@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/maselko-design-system-4ca08952-45c9-40ab-b5a6-5ba18ac4f7bd/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/maselko-design-system-4ca08952-45c9-40ab-b5a6-5ba18ac4f7bd/tokens/colors.css">
+<link rel="stylesheet" href="_ds/maselko-design-system-4ca08952-45c9-40ab-b5a6-5ba18ac4f7bd/tokens/typography.css">
+<link rel="stylesheet" href="_ds/maselko-design-system-4ca08952-45c9-40ab-b5a6-5ba18ac4f7bd/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/maselko-design-system-4ca08952-45c9-40ab-b5a6-5ba18ac4f7bd/tokens/base.css">
+<script src="_ds/maselko-design-system-4ca08952-45c9-40ab-b5a6-5ba18ac4f7bd/_ds_bundle.js"></script>
+<script src="image-slot.js"></script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #efe0c9; }
+  * { box-sizing: border-box; }
+  @keyframes mselSpin { to { transform: rotate(360deg); } }
+  @keyframes mselWave {
+    0%, 100% { transform: scaleY(0.55); }
+    50% { transform: scaleY(1); }
+  }
+  @keyframes mselFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+  .msel-shell { width: 100%; max-width: 600px; }
+  .msel-section-inner { width: 100%; }
+  @media (min-width: 760px) {
+    .msel-shell {
+      max-width: 100% !important;
+      box-shadow: none !important;
+    }
+    .msel-hero {
+      min-height: clamp(680px, 100svh, 860px) !important;
+    }
+    .msel-header {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 30px clamp(32px, 5vw, 64px) !important;
+    }
+    .msel-header img {
+      height: 30px !important;
+    }
+    .msel-hero-content {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 clamp(32px, 5vw, 64px) clamp(64px, 8vh, 96px) !important;
+    }
+    .msel-hero-content h1 {
+      max-width: 12ch;
+      font-size: clamp(52px, 5.5vw, 72px) !important;
+    }
+    .msel-hero-content p {
+      max-width: 48ch !important;
+      font-size: 18px !important;
+    }
+    .msel-hero-content > div:last-child {
+      max-width: 800px;
+    }
+    .msel-section,
+    .msel-footer {
+      padding-left: clamp(32px, 6vw, 80px) !important;
+      padding-right: clamp(32px, 6vw, 80px) !important;
+    }
+    .msel-section {
+      padding-top: clamp(72px, 8vw, 104px) !important;
+      padding-bottom: clamp(72px, 8vw, 104px) !important;
+    }
+    .msel-section-inner,
+    .msel-footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+    .msel-task-list {
+      display: grid !important;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px !important;
+    }
+    .msel-process-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+      column-gap: clamp(32px, 5vw, 64px);
+      align-items: center;
+    }
+    .msel-process-inner > div:first-child,
+    .msel-process-inner > h2 {
+      grid-column: 1 / -1;
+    }
+    #msel-process {
+      height: 320px !important;
+      margin-bottom: 0 !important;
+    }
+    .msel-process-steps {
+      gap: 18px !important;
+    }
+    .msel-prize-cards {
+      max-width: 760px;
+    }
+    #msel-prize {
+      height: 320px !important;
+    }
+    .msel-playlist-media {
+      max-width: 780px;
+    }
+    .msel-playlist-media > div {
+      width: 132px !important;
+      height: 132px !important;
+    }
+    #msel-playlist {
+      height: 132px !important;
+    }
+    .msel-footer-cta {
+      max-width: 640px;
+    }
+  }
+  @media (min-width: 1100px) {
+    .msel-prize-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(420px, 1.1fr);
+      column-gap: clamp(36px, 5vw, 72px);
+      align-items: center;
+    }
+    .msel-prize-inner > div:first-child,
+    .msel-prize-inner > h2 {
+      grid-column: 1 / -1;
+    }
+    .msel-prize-cards,
+    .msel-prize-inner > p {
+      grid-column: 1;
+    }
+    #msel-prize {
+      grid-column: 2;
+      grid-row: 3 / span 2;
+      height: 360px !important;
+      margin-bottom: 0 !important;
+    }
+  }
+  @media (max-width: 430px) {
+    .msel-header {
+      padding: 20px 18px !important;
+    }
+    .msel-header img {
+      height: 23px !important;
+    }
+    .msel-header span {
+      font-size: 12px !important;
+      letter-spacing: 0.14em !important;
+    }
+  }
+</style>
+</helmet>
+
+<div class="msel-page" style="font-family: var(--font-body); color: var(--ink-900); background: #efe0c9; min-height: 100vh; -webkit-font-smoothing: antialiased;">
+<div class="msel-shell" style="max-width: 600px; margin: 0 auto; background: #fdf6ec; box-shadow: 0 0 80px rgba(94,18,13,0.16); overflow: hidden; position: relative;">
+
+  <!-- ============ HERO ============ -->
+  <section class="msel-hero" style="position: relative; min-height: 100svh; display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden;">
+    <image-slot id="msel-hero" src="assets/jarayon.png" shape="rect" radius="0" placeholder="[HERO IMAGE] — fon rasmi" style="position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0;"></image-slot>
+    <div style="position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(94,18,13,0.30) 0%, rgba(94,18,13,0.05) 32%, rgba(60,12,8,0.55) 70%, rgba(40,8,5,0.92) 100%);"></div>
+
+    <!-- top brand row -->
+    <div class="msel-header" style="position: absolute; top: 0; left: 0; right: 0; z-index: 3; display: flex; align-items: center; justify-content: space-between; padding: 22px 24px;">
+      <img src="assets/maselko_logo.svg" alt="Maselko" style="display: block; width: auto; height: 25px; filter: drop-shadow(0 2px 12px rgba(40,8,5,0.5));">
+      <span style="font-family: var(--font-body); font-weight: 700; font-size: 14px; letter-spacing: 0.18em; color: var(--gold-500); text-transform: uppercase;">KONKURS</span>
+    </div>
+
+    <!-- hero content -->
+    <div class="msel-hero-content" style="position: relative; z-index: 3; padding: 0 26px 46px;">
+      <div style="display: inline-flex; align-items: center; gap: 9px; padding: 7px 14px 7px 11px; border-radius: 999px; background: rgba(255,205,130,0.18); border: 1px solid rgba(255,205,130,0.5); backdrop-filter: blur(6px); margin-bottom: 20px;">
+        <span style="display: inline-flex; align-items: flex-end; gap: 2px; height: 13px;">
+          <i style="display:block; width:2.5px; height:6px; background:var(--gold-500); border-radius:2px; animation: mselWave 1.1s var(--ease-in-out) infinite; transform-origin: bottom;"></i>
+          <i style="display:block; width:2.5px; height:13px; background:var(--gold-500); border-radius:2px; animation: mselWave 1.1s var(--ease-in-out) infinite 0.18s; transform-origin: bottom;"></i>
+          <i style="display:block; width:2.5px; height:9px; background:var(--gold-500); border-radius:2px; animation: mselWave 1.1s var(--ease-in-out) infinite 0.36s; transform-origin: bottom;"></i>
+          <i style="display:block; width:2.5px; height:13px; background:var(--gold-500); border-radius:2px; animation: mselWave 1.1s var(--ease-in-out) infinite 0.5s; transform-origin: bottom;"></i>
+        </span>
+        <!-- <span style="font-family: var(--font-body); font-weight: 700; font-size: 11px; letter-spacing: 0.14em; color: var(--gold-300); text-transform: uppercase;">Pishir · Tingla · Zavqlan</span> -->
+      </div>
+
+      <h1 style="font-family: var(--font-display); font-weight: 900; font-size: clamp(38px, 12vw, 58px); line-height: 0.98; letter-spacing: -0.02em; color: #fdf6ec; text-transform: uppercase; margin: 0 0 18px; text-shadow: 0 4px 30px rgba(40,8,5,0.45); text-wrap: balance;">MASELKO bilan <span style="color: var(--gold-500);">jarayondan</span> zavqlaning!</h1>
+
+      <p style="font-family: var(--font-body); font-weight: 500; font-size: 16px; line-height: 1.55; color: rgba(253,246,236,0.92); margin: 0 0 26px; max-width: 38ch; text-wrap: pretty;">Taom tayyorlash — bu shunchaki ovqat qilish emas. Bu dam olish, kayfiyat olish va jarayondan zavqlanish vaqti. Maselko bilan bu jarayon yanada yoqimli bo'ladi. Ayniqsa, sevimli musiqa hamroh bo'lsa.</p>
+
+      <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 24px;">
+        <span style="display:inline-flex; align-items:center; padding: 9px 16px; border-radius: 999px; background: var(--red-400); color: #fff; font-weight: 800; font-size: 14px; letter-spacing: 0.01em; box-shadow: 0 6px 18px rgba(226,43,25,0.4);">#Maselko</span>
+        <span style="display:inline-flex; align-items:center; padding: 9px 16px; border-radius: 999px; background: rgba(253,246,236,0.14); border: 1px solid rgba(253,246,236,0.4); color: #fdf6ec; font-weight: 800; font-size: 14px; backdrop-filter: blur(6px);">#JarayondanZavqlaning</span>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-radius: 16px; background: rgba(253,246,236,0.1); border: 1px solid rgba(253,246,236,0.22); backdrop-filter: blur(8px);">
+        <span style="flex: none; display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 50%; background: var(--gold-500); color: var(--red-700); font-weight: 900; font-size: 18px;">↑</span>
+        <span style="font-family: var(--font-body); font-weight: 600; font-size: 13.5px; line-height: 1.4; color: rgba(253,246,236,0.95);">Ishtirok etish uchun videongizni joylang va <b style="color: var(--gold-300);">#Maselko</b> bilan belgilang.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VAZIFA / REELS ============ -->
+  <section class="msel-section msel-section--tasks" style="background: linear-gradient(180deg, #faeedc 0%, #fdf6ec 100%); padding: 56px 26px 52px;">
+    <div class="msel-section-inner" data-reveal style="opacity: 0; transform: translateY(24px); transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);">
+      <div style="display: inline-flex; align-items: center; gap: 8px; margin-bottom: 14px;">
+        <span style="width: 26px; height: 2px; background: var(--red-400); border-radius: 2px;"></span>
+        <span style="font-family: var(--font-body); font-weight: 700; font-size: 11px; letter-spacing: 0.16em; color: var(--red-400); text-transform: uppercase;">Stories / Reels</span>
+      </div>
+      <h2 style="font-family: var(--font-display); font-weight: 900; font-size: clamp(28px, 8vw, 38px); line-height: 1.02; letter-spacing: -0.02em; color: var(--red-700); text-transform: uppercase; margin: 0 0 22px;">Siz uchun vazifa</h2>
+
+      <!-- <image-slot id="msel-reels" src="assets/kid-salami.jpg" shape="rounded" radius="20" placeholder="[REELS IMAGE]" style="display: block; width: 100%; height: 210px; margin-bottom: 24px; box-shadow: var(--shadow-md);"></image-slot> -->
+
+      <ul class="msel-task-list" style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px;">
+        <sc-for list="{{ vazifa }}" as="item" hint-placeholder-count="4">
+          <li style="display: flex; align-items: flex-start; gap: 14px; padding: 16px 18px; background: #fff; border-radius: 16px; box-shadow: var(--shadow-sm);">
+            <span style="flex: none; display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 50%; background: var(--gold-500); color: var(--red-700); font-weight: 900; font-size: 16px;">✓</span>
+            <span style="font-family: var(--font-body); font-weight: 500; font-size: 15px; line-height: 1.45; color: var(--ink-700); text-wrap: pretty;">{{ item }}</span>
+          </li>
+        </sc-for>
+      </ul>
+    </div>
+  </section>
+
+  <!-- waveform divider -->
+  <!-- <div style="display: flex; align-items: center; justify-content: center; gap: 3px; height: 44px; background: #fdf6ec;">
+    <sc-for list="{{ dividerBars }}" as="b" hint-placeholder-count="34">
+      <span style="display:block; width: 3px; height: {{ b.h }}px; background: rgba(146,30,23,0.16); border-radius: 3px;"></span>
+    </sc-for>
+  </div> -->
+
+  <!-- ============ MEXANIKA ============ -->
+  <section class="msel-section msel-section--process" style="background: #fdf6ec; padding: 48px 26px 54px;">
+    <div class="msel-section-inner msel-process-inner" data-reveal style="opacity: 0; transform: translateY(24px); transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);">
+      <div style="display: inline-flex; align-items: center; gap: 8px; margin-bottom: 14px;">
+        <span style="width: 26px; height: 2px; background: var(--red-400); border-radius: 2px;"></span>
+        <span style="font-family: var(--font-body); font-weight: 700; font-size: 11px; letter-spacing: 0.16em; color: var(--red-400); text-transform: uppercase;">3 oddiy qadam</span>
+      </div>
+      <h2 style="font-family: var(--font-display); font-weight: 900; font-size: clamp(28px, 8vw, 38px); line-height: 1.02; letter-spacing: -0.02em; color: var(--red-700); text-transform: uppercase; margin: 0 0 22px;">Konkurs mexanikasi</h2>
+
+      <image-slot id="msel-process" src="assets/bread-butter.png" shape="rounded" radius="20" placeholder="[PROCESS IMAGE]" style="display: block; width: 100%; height: 200px; margin-bottom: 26px; box-shadow: var(--shadow-md);"></image-slot>
+
+      <div class="msel-process-steps" style="display: flex; flex-direction: column; gap: 14px;">
+        <sc-for list="{{ steps }}" as="step" hint-placeholder-count="3">
+          <div style="display: flex; align-items: flex-start; gap: 16px;">
+            <span style="flex: none; font-family: var(--font-display); font-weight: 900; font-size: 40px; line-height: 0.9; color: var(--gold-500); -webkit-text-stroke: 1.5px var(--red-400); width: 44px; text-align: center;">{{ step.n }}</span>
+            <p style="font-family: var(--font-body); font-weight: 500; font-size: 15.5px; line-height: 1.5; color: var(--ink-700); margin: 6px 0 0; text-wrap: pretty;">{{ step.t }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PRIZE ============ -->
+  <section class="msel-section msel-section--prize" style="background: var(--red-700); padding: 54px 26px 56px; position: relative; overflow: hidden;">
+    <div style="position: absolute; top: -40px; right: -40px; font-family: var(--font-display); font-weight: 900; font-size: 200px; color: rgba(255,205,130,0.06); line-height: 1; pointer-events: none; user-select: none;">М</div>
+    <div class="msel-section-inner msel-prize-inner" data-reveal style="position: relative; opacity: 0; transform: translateY(24px); transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);">
+      <div style="display: inline-flex; align-items: center; gap: 8px; margin-bottom: 14px;">
+        <span style="width: 26px; height: 2px; background: var(--gold-500); border-radius: 2px;"></span>
+        <span style="font-family: var(--font-body); font-weight: 700; font-size: 11px; letter-spacing: 0.16em; color: var(--gold-500); text-transform: uppercase;">G'oliblar uchun</span>
+      </div>
+      <h2 style="font-family: var(--font-display); font-weight: 900; font-size: clamp(30px, 9vw, 42px); line-height: 1.0; letter-spacing: -0.02em; color: #fdf6ec; text-transform: uppercase; margin: 0 0 22px;">Sovrinlar</h2>
+
+      <div class="msel-prize-cards" style="display: flex; gap: 12px; margin-bottom: 22px;">
+        <div style="flex: 1; background: var(--gold-500); border-radius: 18px; padding: 18px 16px; text-align: center;">
+          <div style="font-family: var(--font-display); font-weight: 900; font-size: 46px; line-height: 1; color: var(--red-700);">3</div>
+          <div style="font-family: var(--font-body); font-weight: 800; font-size: 12px; letter-spacing: 0.08em; color: var(--red-700); text-transform: uppercase; margin-top: 4px;">ta g'olib</div>
+        </div>
+        <div style="flex: 2; background: rgba(255,205,130,0.14); border: 1px solid rgba(255,205,130,0.4); border-radius: 18px; padding: 18px; display: flex; flex-direction: column; justify-content: center;">
+          <div style="font-family: var(--font-body); font-weight: 700; font-size: 11px; letter-spacing: 0.1em; color: var(--gold-300); text-transform: uppercase; margin-bottom: 5px;">Bosh sovrin</div>
+          <div style="font-family: var(--font-display); font-weight: 900; font-size: 21px; line-height: 1.05; color: #fdf6ec;">Kenwood planetar mikseri</div>
+        </div>
+      </div>
+
+      <image-slot id="msel-prize" src="assets/butter-pack.png" shape="rounded" radius="20" placeholder="[PRIZE IMAGE]" style="display: block; width: 100%; height: 200px; margin-bottom: 22px; box-shadow: var(--shadow-lg);"></image-slot>
+
+      <p style="font-family: var(--font-body); font-weight: 500; font-size: 15.5px; line-height: 1.55; color: rgba(253,246,236,0.92); margin: 0; text-wrap: pretty;">Eng qiziqarli va kreativ <b style="color: var(--gold-500);">3 ta video</b> mualliflari Maselko tomonidan <b style="color: var(--gold-500);">Kenwood planetar mikseri</b> va Maselko mahsulotlari bilan taqdirlanadi.</p>
+    </div>
+  </section>
+
+  <!-- ============ PLAYLIST ============ -->
+  <section class="msel-section msel-section--playlist" style="background: linear-gradient(180deg, #2a1411 0%, #3a1a14 100%); padding: 56px 26px 58px; position: relative; overflow: hidden;">
+    <div class="msel-section-inner" data-reveal style="position: relative; opacity: 0; transform: translateY(24px); transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);">
+      <div style="display: inline-flex; align-items: center; gap: 8px; margin-bottom: 14px;">
+        <span style="width: 26px; height: 2px; background: var(--gold-500); border-radius: 2px;"></span>
+        <span style="font-family: var(--font-body); font-weight: 700; font-size: 11px; letter-spacing: 0.16em; color: var(--gold-500); text-transform: uppercase;">Musiqa hamroh</span>
+      </div>
+      <h2 style="font-family: var(--font-display); font-weight: 900; font-size: clamp(28px, 8vw, 38px); line-height: 1.02; letter-spacing: -0.02em; color: #fdf6ec; text-transform: uppercase; margin: 0 0 22px;">Maselko playlistlari haqida</h2>
+
+      <!-- vinyl + image row -->
+      <div class="msel-playlist-media" style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
+        <div style="flex: none; position: relative; width: 110px; height: 110px;">
+          <div style="position: absolute; inset: 0; border-radius: 50%; background: radial-gradient(circle at center, #1a0d0a 0 20%, #2a1411 20% 22%, #1a0d0a 22% 30%, #2a1411 30% 32%, #1a0d0a 32% 44%, #2a1411 44% 46%, #1a0d0a 46% 100%); box-shadow: 0 10px 30px rgba(0,0,0,0.5); animation: mselSpin 14s linear infinite;">
+            <div style="position: absolute; top: 50%; left: 50%; width: 34px; height: 34px; margin: -17px 0 0 -17px; border-radius: 50%; background: var(--red-400);"></div>
+            <div style="position: absolute; top: 50%; left: 50%; width: 6px; height: 6px; margin: -3px 0 0 -3px; border-radius: 50%; background: #1a0d0a;"></div>
+          </div>
+        </div>
+        <image-slot id="msel-playlist" src="assets/family-coffee.jpg" shape="rounded" radius="16" placeholder="[PLAYLIST IMAGE]" style="display: block; flex: 1; height: 110px; box-shadow: var(--shadow-md);"></image-slot>
+      </div>
+
+      <p style="font-family: var(--font-body); font-weight: 500; font-size: 15px; line-height: 1.55; color: rgba(253,246,236,0.85); margin: 0 0 24px; text-wrap: pretty;">Maselko jarayonni yanada yoqimli qilish uchun maxsus playlistlar yaratgan. Videoda bu playlistlardan foydalanayotganingizni ko'rsating yoki aytib o'ting.</p>
+
+      <!-- quote card -->
+      <div style="background: var(--gold-500); border-radius: 20px; padding: 24px 22px; box-shadow: var(--shadow-gold); position: relative;">
+        <div style="font-family: var(--font-display); font-weight: 900; font-size: 60px; line-height: 0.6; color: var(--red-400); height: 26px;">“</div>
+        <p style="font-family: var(--font-body); font-weight: 600; font-size: 15.5px; line-height: 1.55; color: var(--red-800); margin: 0; text-wrap: pretty;">Men uchun ovqat tayyorlashning eng yoqimli qismi — jarayon. Ayniqsa musiqa bo'lsa, umuman boshqacha kayfiyat bo'ladi. Maselko ham shuning uchun har xil taomlarga mos playlistlar tayyorlabdi, siz ham ulardan foydalanishingiz mumkin.</p>
+      </div>
+      <p style="font-family: var(--font-body); font-weight: 500; font-style: italic; font-size: 13px; line-height: 1.4; color: rgba(253,246,236,0.6); margin: 14px 4px 0;">Yoki o'z so'zlaringiz bilan shunga yaqin fikr aytishingiz mumkin.</p>
+    </div>
+  </section>
+
+  <!-- ============ TALABLAR ============ -->
+  <!-- <section style="background: #fdf6ec; padding: 54px 26px 54px;">
+    <div data-reveal style="opacity: 0; transform: translateY(24px); transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);">
+      <div style="display: inline-flex; align-items: center; gap: 8px; margin-bottom: 14px;">
+        <span style="width: 26px; height: 2px; background: var(--red-400); border-radius: 2px;"></span>
+        <span style="font-family: var(--font-body); font-weight: 700; font-size: 11px; letter-spacing: 0.16em; color: var(--red-400); text-transform: uppercase;">E'tiborga oling</span>
+      </div>
+      <h2 style="font-family: var(--font-display); font-weight: 900; font-size: clamp(28px, 8vw, 38px); line-height: 1.02; letter-spacing: -0.02em; color: var(--red-700); text-transform: uppercase; margin: 0 0 22px;">Talablar</h2>
+
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <sc-for list="{{ talablar }}" as="req" hint-placeholder-count="3">
+          <div style="display: flex; align-items: center; gap: 14px; padding: 16px 18px; background: var(--cream-500); border-radius: 16px;">
+            <span style="flex: none; display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background: var(--red-700); color: var(--gold-500); font-weight: 900; font-size: 18px;">{{ req.icon }}</span>
+            <span style="font-family: var(--font-body); font-weight: 600; font-size: 15px; line-height: 1.4; color: var(--red-800); text-wrap: pretty;">{{ req.t }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section> -->
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="msel-footer" style="background: var(--red-700); padding: 54px 26px 44px; text-align: center; position: relative; overflow: hidden;">
+    <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; gap: 3px; opacity: 0.5;">
+      <sc-for list="{{ footerBars }}" as="b" hint-placeholder-count="40">
+        <span style="display:block; width: 3px; height: {{ b.h }}px; background: rgba(255,205,130,0.12); border-radius: 3px;"></span>
+      </sc-for>
+    </div>
+    <div class="msel-footer-inner" style="position: relative;">
+      <div style="font-family: var(--font-display); font-weight: 900; font-size: clamp(30px, 9vw, 40px); line-height: 1.05; color: var(--gold-500); text-transform: none; letter-spacing: -0.01em; margin-bottom: 8px;">#Maselko</div>
+      <div style="font-family: var(--font-display); font-weight: 900; font-size: clamp(26px, 7.5vw, 34px); line-height: 1.05; color: #fdf6ec; letter-spacing: -0.01em; margin-bottom: 28px;">#JarayondanZavqlaning</div>
+
+      <div class="msel-footer-cta" style="display: inline-flex; align-items: center; gap: 12px; padding: 14px 20px; border-radius: 999px; background: rgba(253,246,236,0.1); border: 1px solid rgba(253,246,236,0.24); margin-bottom: 30px;">
+        <span style="flex: none; display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 50%; background: var(--gold-500); color: var(--red-700); font-weight: 900; font-size: 16px;">↑</span>
+        <span style="font-family: var(--font-body); font-weight: 600; font-size: 13.5px; line-height: 1.4; color: rgba(253,246,236,0.95); text-align: left;">Videongizni joylang va Maselko'ni belgilang — konkurs boshlandi!</span>
+      </div>
+
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 4px; padding-top: 8px; border-top: 1px solid rgba(253,246,236,0.16);">
+        <img src="assets/maselko_logo.svg" alt="Maselko" style="display: block; width: 170px; height: auto; margin-top: 22px;">
+        <span style="font-family: var(--font-body); font-weight: 600; font-size: 10px; letter-spacing: 0.22em; color: var(--gold-500); text-transform: uppercase;">для всей семьи</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const wave = (n, seed) => Array.from({ length: n }, (_, i) => {
+      const v = Math.abs(Math.sin(i * 0.7 + seed) * 0.6 + Math.sin(i * 1.9 + seed) * 0.4);
+      return { h: Math.round(6 + v * 28) };
+    });
+    return {
+      vazifa: [
+        "Maselko mahsulotidan foydalanib, o'zingiz sevgan pishiriq yoki taomni tayyorlang",
+        "Tayyorlash jarayonini videoga oling",
+        "Musiqa yoki Maselko playlistlarini tabiiy tarzda ko'rsating",
+        "Konkurs haqida e'lon qiling",
+      ],
+      steps: [
+        { n: '1', t: "Maselko mahsulotlaridan foydalanib istalgan taom tayyorlang" },
+        { n: '2', t: "Tayyor natijani emas, aynan tayyorlash jarayonini videoga oling" },
+        { n: '3', t: "Videoni o'z sahifangizga joylang va Maselko'ni belgilang" },
+      ],
+      talablar: [
+        { icon: '#', t: "Kampaniya xeshteglari ishlatiladi" },
+        { icon: '✓', t: "Ssenariy oldindan kelishiladi" },
+        { icon: '★', t: "Video sifati yaxshi bo'lishi kerak" },
+      ],
+      dividerBars: wave(34, 0.5),
+      footerBars: wave(46, 2.1),
+    };
+  }
+
+  componentDidMount() {
+    const reveal = (el) => { el.style.opacity = '1'; el.style.transform = 'none'; };
+    const nodes = () => Array.from(document.querySelectorAll('[data-reveal]'));
+    if (!('IntersectionObserver' in window)) {
+      nodes().forEach(reveal);
+      return;
+    }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) { reveal(e.target); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    nodes().forEach((el) => io.observe(el));
+    this._revealTimer = setTimeout(() => nodes().forEach(reveal), 2600);
+  }
+
+  componentWillUnmount() {
+    if (this._revealTimer) clearTimeout(this._revealTimer);
+  }
+}
+</script>
+</body>
+</html>

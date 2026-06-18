@@ -1,0 +1,94 @@
+/* ============================================================
+   MASELKO · BASE / RESET + element defaults + helper classes
+   ============================================================ */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--text-md);
+  line-height: var(--lh-normal);
+  color: var(--text-body);
+  background: var(--surface-page);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-family: var(--font-display);
+  color: var(--text-strong);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-snug);
+  text-wrap: balance;
+}
+
+p { margin: 0; text-wrap: pretty; }
+a { color: var(--text-brand); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+img { display: block; max-width: 100%; }
+
+::selection { background: var(--gold-500); color: var(--red-700); }
+
+:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+/* ---- Brand typographic helpers ---- */
+
+.ms-hero {
+  font-family: var(--font-display);
+  font-weight: var(--fw-black);
+  font-size: var(--type-hero-size);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight);
+  color: var(--text-strong);
+}
+
+.ms-display {
+  font-family: var(--font-display);
+  font-weight: var(--fw-extrabold);
+  font-size: var(--type-display-size);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight);
+}
+
+.ms-eyebrow {
+  font-weight: var(--fw-bold);
+  font-size: var(--type-eyebrow-size);
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--text-brand);
+}
+
+/* The signature tagline lockup ("ДЛЯ ВСЕЙ СЕМЬИ") */
+.ms-tagline {
+  font-weight: var(--fw-semibold);
+  font-size: var(--text-xs);
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+}
+
+/* Wordmark — recreated from the brand font (see fonts.css note) */
+.ms-wordmark {
+  font-family: var(--font-display);
+  font-weight: var(--fw-black);
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+/* Ghost / outline wordmark used as a background motif */
+.ms-wordmark-ghost {
+  font-family: var(--font-display);
+  font-weight: var(--fw-black);
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  -webkit-text-stroke: 2px var(--red-700);
+  color: transparent;
+  opacity: 0.18;
+  line-height: 1;
+}

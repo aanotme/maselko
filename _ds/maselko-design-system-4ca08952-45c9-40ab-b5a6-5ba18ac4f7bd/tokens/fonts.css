@@ -1,0 +1,7 @@
+/* Maselko webfonts.
+   NOTE: The original brand typeface is not embedded in the supplied PDF
+   (subsetted/outlined). "Onest" — a modern geometric grotesque with full
+   Cyrillic + Latin coverage — is used as the nearest match for the МАСЕЛКО
+   wordmark and headlines. Replace with the official face if/when supplied. */
+
+@import url('https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700;800;900&display=swap');
