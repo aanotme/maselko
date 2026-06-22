@@ -131,7 +131,7 @@
       grid-column: 1 / -1;
     }
     .msel-prize-cards,
-    .msel-prize-inner > p {
+    .msel-prize-text {
       grid-column: 1;
     }
     #msel-prize {
@@ -184,7 +184,8 @@
 
       <h1 style="font-family: var(--font-display); font-weight: 900; font-size: clamp(38px, 12vw, 58px); line-height: 0.98; letter-spacing: -0.02em; color: #fdf6ec; text-transform: uppercase; margin: 0 0 18px; text-shadow: 0 4px 30px rgba(40,8,5,0.45); text-wrap: balance;">MASELKO bilan <span style="color: var(--gold-500);">jarayondan</span> zavqlaning!</h1>
 
-      <p style="font-family: var(--font-body); font-weight: 500; font-size: 16px; line-height: 1.55; color: rgba(253,246,236,0.92); margin: 0 0 26px; max-width: 38ch; text-wrap: pretty;">Taom tayyorlash — bu shunchaki ovqat qilish emas. Bu dam olish, kayfiyat olish va jarayondan zavqlanish vaqti. Maselko bilan bu jarayon yanada yoqimli bo'ladi. Ayniqsa, sevimli musiqa hamroh bo'lsa.</p>
+      <p style="font-family: var(--font-body); font-weight: 500; font-size: 16px; line-height: 1.55; color: rgba(253,246,236,0.92); margin: 0 0 26px; max-width: 38ch; text-wrap: pretty;">Taom tayyorlash jarayoni siz uchun ham yoqimlimi?
+Maselko bilan sevimli taomingizni tayyorlang, jarayondan qanday zavqlanayotganingizni videoga oling va sovg'alarni qo'lga kiriting.</p>
 
       <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 24px;">
         <span style="display:inline-flex; align-items:center; padding: 9px 16px; border-radius: 999px; background: var(--red-400); color: #fff; font-weight: 800; font-size: 14px; letter-spacing: 0.01em; box-shadow: 0 6px 18px rgba(226,43,25,0.4);">#Maselko</span>
@@ -192,8 +193,8 @@
       </div>
 
       <div style="display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-radius: 16px; background: rgba(253,246,236,0.1); border: 1px solid rgba(253,246,236,0.22); backdrop-filter: blur(8px);">
-        <span style="flex: none; display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 50%; background: var(--gold-500); color: var(--red-700); font-weight: 900; font-size: 18px;">↑</span>
-        <span style="font-family: var(--font-body); font-weight: 600; font-size: 13.5px; line-height: 1.4; color: rgba(253,246,236,0.95);">Ishtirok etish uchun videongizni joylang va <b style="color: var(--gold-300);">#Maselko</b> bilan belgilang.</span>
+        <span style="flex: none; display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 50%; background: var(--gold-500); color: var(--red-700); font-weight: 900; font-size: 18px;">!</span>
+        <span style="font-family: var(--font-body); font-weight: 600; font-size: 13.5px; line-height: 1.4; color: rgba(253,246,236,0.95);">Ishtirok etish uchun videongizni ijtimoiy tarmoqlarga joylang, <b style="color: var(--gold-300);">@Maselko</b>'ni belgilang va <b style="color: var(--gold-300);">#Maselko</b> xeshtegidan foydalaning.</span>
       </div>
     </div>
   </section>
@@ -201,19 +202,15 @@
   <!-- ============ VAZIFA / REELS ============ -->
   <section class="msel-section msel-section--tasks" style="background: linear-gradient(180deg, #faeedc 0%, #fdf6ec 100%); padding: 56px 26px 52px;">
     <div class="msel-section-inner" data-reveal style="opacity: 0; transform: translateY(24px); transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);">
-      <div style="display: inline-flex; align-items: center; gap: 8px; margin-bottom: 14px;">
-        <span style="width: 26px; height: 2px; background: var(--red-400); border-radius: 2px;"></span>
-        <span style="font-family: var(--font-body); font-weight: 700; font-size: 11px; letter-spacing: 0.16em; color: var(--red-400); text-transform: uppercase;">Stories / Reels</span>
-      </div>
-      <h2 style="font-family: var(--font-display); font-weight: 900; font-size: clamp(28px, 8vw, 38px); line-height: 1.02; letter-spacing: -0.02em; color: var(--red-700); text-transform: uppercase; margin: 0 0 22px;">Siz uchun vazifa</h2>
+      <h2 style="font-family: var(--font-display); font-weight: 900; font-size: clamp(28px, 8vw, 38px); line-height: 1.02; letter-spacing: -0.02em; color: var(--red-700); text-transform: uppercase; margin: 0 0 22px;">Qatnashish uchun:</h2>
 
       <!-- <image-slot id="msel-reels" src="assets/kid-salami.jpg" shape="rounded" radius="20" placeholder="[REELS IMAGE]" style="display: block; width: 100%; height: 210px; margin-bottom: 24px; box-shadow: var(--shadow-md);"></image-slot> -->
 
       <ul class="msel-task-list" style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px;">
         <sc-for list="{{ vazifa }}" as="item" hint-placeholder-count="4">
           <li style="display: flex; align-items: flex-start; gap: 14px; padding: 16px 18px; background: #fff; border-radius: 16px; box-shadow: var(--shadow-sm);">
-            <span style="flex: none; display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 50%; background: var(--gold-500); color: var(--red-700); font-weight: 900; font-size: 16px;">✓</span>
-            <span style="font-family: var(--font-body); font-weight: 500; font-size: 15px; line-height: 1.45; color: var(--ink-700); text-wrap: pretty;">{{ item }}</span>
+            <span style="flex: none; display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 50%; background: var(--gold-500); color: var(--red-700); font-weight: 900; font-size: 16px;">{{ item.n }}</span>
+            <span style="font-family: var(--font-body); font-weight: 500; font-size: 15px; line-height: 1.45; color: var(--ink-700); text-wrap: pretty;"><b style="display: block; color: var(--red-700); font-weight: 900; margin-bottom: 3px;">{{ item.title }}</b>{{ item.text }}</span>
           </li>
         </sc-for>
       </ul>
@@ -228,12 +225,8 @@
   </div> -->
 
   <!-- ============ MEXANIKA ============ -->
-  <section class="msel-section msel-section--process" style="background: #fdf6ec; padding: 48px 26px 54px;">
+  <!-- <section class="msel-section msel-section--process" style="background: #fdf6ec; padding: 48px 26px 54px;">
     <div class="msel-section-inner msel-process-inner" data-reveal style="opacity: 0; transform: translateY(24px); transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);">
-      <div style="display: inline-flex; align-items: center; gap: 8px; margin-bottom: 14px;">
-        <span style="width: 26px; height: 2px; background: var(--red-400); border-radius: 2px;"></span>
-        <span style="font-family: var(--font-body); font-weight: 700; font-size: 11px; letter-spacing: 0.16em; color: var(--red-400); text-transform: uppercase;">3 oddiy qadam</span>
-      </div>
       <h2 style="font-family: var(--font-display); font-weight: 900; font-size: clamp(28px, 8vw, 38px); line-height: 1.02; letter-spacing: -0.02em; color: var(--red-700); text-transform: uppercase; margin: 0 0 22px;">Konkurs mexanikasi</h2>
 
       <image-slot id="msel-process" src="assets/bread-butter.png" shape="rounded" radius="20" placeholder="[PROCESS IMAGE]" style="display: block; width: 100%; height: 200px; margin-bottom: 26px; box-shadow: var(--shadow-md);"></image-slot>
@@ -247,43 +240,40 @@
         </sc-for>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- ============ PRIZE ============ -->
   <section class="msel-section msel-section--prize" style="background: var(--red-700); padding: 54px 26px 56px; position: relative; overflow: hidden;">
     <div style="position: absolute; top: -40px; right: -40px; font-family: var(--font-display); font-weight: 900; font-size: 200px; color: rgba(255,205,130,0.06); line-height: 1; pointer-events: none; user-select: none;">М</div>
     <div class="msel-section-inner msel-prize-inner" data-reveal style="position: relative; opacity: 0; transform: translateY(24px); transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);">
-      <div style="display: inline-flex; align-items: center; gap: 8px; margin-bottom: 14px;">
-        <span style="width: 26px; height: 2px; background: var(--gold-500); border-radius: 2px;"></span>
-        <span style="font-family: var(--font-body); font-weight: 700; font-size: 11px; letter-spacing: 0.16em; color: var(--gold-500); text-transform: uppercase;">G'oliblar uchun</span>
-      </div>
-      <h2 style="font-family: var(--font-display); font-weight: 900; font-size: clamp(30px, 9vw, 42px); line-height: 1.0; letter-spacing: -0.02em; color: #fdf6ec; text-transform: uppercase; margin: 0 0 22px;">Sovrinlar</h2>
+      <h2 style="font-family: var(--font-display); font-weight: 900; font-size: clamp(30px, 9vw, 42px); line-height: 1.0; letter-spacing: -0.02em; color: #fdf6ec; text-transform: uppercase; margin: 0 0 22px;">Sovg'alar</h2>
 
       <div class="msel-prize-cards" style="display: flex; gap: 12px; margin-bottom: 22px;">
         <div style="flex: 1; background: var(--gold-500); border-radius: 18px; padding: 18px 16px; text-align: center;">
           <div style="font-family: var(--font-display); font-weight: 900; font-size: 46px; line-height: 1; color: var(--red-700);">3</div>
-          <div style="font-family: var(--font-body); font-weight: 800; font-size: 12px; letter-spacing: 0.08em; color: var(--red-700); text-transform: uppercase; margin-top: 4px;">ta g'olib</div>
+          <div style="font-family: var(--font-body); font-weight: 800; font-size: 12px; letter-spacing: 0.08em; color: var(--red-700); text-transform: uppercase; margin-top: 4px;">nafar g'olib</div>
         </div>
         <div style="flex: 2; background: rgba(255,205,130,0.14); border: 1px solid rgba(255,205,130,0.4); border-radius: 18px; padding: 18px; display: flex; flex-direction: column; justify-content: center;">
-          <div style="font-family: var(--font-body); font-weight: 700; font-size: 11px; letter-spacing: 0.1em; color: var(--gold-300); text-transform: uppercase; margin-bottom: 5px;">Bosh sovrin</div>
-          <div style="font-family: var(--font-display); font-weight: 900; font-size: 21px; line-height: 1.05; color: #fdf6ec;">Kenwood planetar mikseri</div>
+          <div style="font-family: var(--font-body); font-weight: 700; font-size: 11px; letter-spacing: 0.1em; color: var(--gold-300); text-transform: uppercase; margin-bottom: 5px;">Har bir g'olib</div>
+          <div style="font-family: var(--font-display); font-weight: 900; font-size: 21px; line-height: 1.05; color: #fdf6ec;">Kenwood mikseri + Maselko box</div>
         </div>
       </div>
 
-      <image-slot id="msel-prize" src="assets/butter-pack.png" shape="rounded" radius="20" placeholder="[PRIZE IMAGE]" style="display: block; width: 100%; height: 200px; margin-bottom: 22px; box-shadow: var(--shadow-lg);"></image-slot>
+      <img id="msel-prize" src="assets/kenwood-mixer.png" alt="Kenwood planetar mikseri" style="display: block; width: 100%; height: 240px; object-fit: contain; background: #fff; border-radius: 20px; margin-bottom: 22px; box-shadow: var(--shadow-lg); padding: 10px;">
 
-      <p style="font-family: var(--font-body); font-weight: 500; font-size: 15.5px; line-height: 1.55; color: rgba(253,246,236,0.92); margin: 0; text-wrap: pretty;">Eng qiziqarli va kreativ <b style="color: var(--gold-500);">3 ta video</b> mualliflari Maselko tomonidan <b style="color: var(--gold-500);">Kenwood planetar mikseri</b> va Maselko mahsulotlari bilan taqdirlanadi.</p>
+      <div class="msel-prize-text" style="font-family: var(--font-body); font-weight: 500; font-size: 15.5px; line-height: 1.55; color: rgba(253,246,236,0.92); margin: 0; text-wrap: pretty;">
+        <p style="margin: 0 0 14px;">Maselko jamoasi jarayondan zavqlanish hissini eng yaxshi ko'rsata olgan, kreativ 3 nafar ishtirokchini tanlaydi.</p>
+        <p style="margin: 0 0 10px; font-weight: 800; color: var(--gold-500);">Har bir g'olib:</p>
+        <p style="margin: 0 0 6px;">&#127873; Kenwood planetar mikseri</p>
+        <p style="margin: 0;">&#127873; Maselko mahsulotlaridan iborat maxsus box bilan taqdirlanadi.</p>
+      </div>
     </div>
   </section>
 
   <!-- ============ PLAYLIST ============ -->
   <section class="msel-section msel-section--playlist" style="background: linear-gradient(180deg, #2a1411 0%, #3a1a14 100%); padding: 56px 26px 58px; position: relative; overflow: hidden;">
     <div class="msel-section-inner" data-reveal style="position: relative; opacity: 0; transform: translateY(24px); transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);">
-      <div style="display: inline-flex; align-items: center; gap: 8px; margin-bottom: 14px;">
-        <span style="width: 26px; height: 2px; background: var(--gold-500); border-radius: 2px;"></span>
-        <span style="font-family: var(--font-body); font-weight: 700; font-size: 11px; letter-spacing: 0.16em; color: var(--gold-500); text-transform: uppercase;">Musiqa hamroh</span>
-      </div>
-      <h2 style="font-family: var(--font-display); font-weight: 900; font-size: clamp(28px, 8vw, 38px); line-height: 1.02; letter-spacing: -0.02em; color: #fdf6ec; text-transform: uppercase; margin: 0 0 22px;">Maselko playlistlari haqida</h2>
+      <h2 style="font-family: var(--font-display); font-weight: 900; font-size: clamp(28px, 8vw, 38px); line-height: 1.02; letter-spacing: -0.02em; color: #fdf6ec; text-transform: uppercase; margin: 0 0 22px;">Musiqani yaxshi ko'rasizmi?</h2>
 
       <!-- vinyl + image row -->
       <div class="msel-playlist-media" style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
@@ -296,24 +286,16 @@
         <image-slot id="msel-playlist" src="assets/family-coffee.jpg" shape="rounded" radius="16" placeholder="[PLAYLIST IMAGE]" style="display: block; flex: 1; height: 110px; box-shadow: var(--shadow-md);"></image-slot>
       </div>
 
-      <p style="font-family: var(--font-body); font-weight: 500; font-size: 15px; line-height: 1.55; color: rgba(253,246,236,0.85); margin: 0 0 24px; text-wrap: pretty;">Maselko jarayonni yanada yoqimli qilish uchun maxsus playlistlar yaratgan. Videoda bu playlistlardan foydalanayotganingizni ko'rsating yoki aytib o'ting.</p>
-
-      <!-- quote card -->
       <div style="background: var(--gold-500); border-radius: 20px; padding: 24px 22px; box-shadow: var(--shadow-gold); position: relative;">
-        <div style="font-family: var(--font-display); font-weight: 900; font-size: 60px; line-height: 0.6; color: var(--red-400); height: 26px;">“</div>
-        <p style="font-family: var(--font-body); font-weight: 600; font-size: 15.5px; line-height: 1.55; color: var(--red-800); margin: 0; text-wrap: pretty;">Men uchun ovqat tayyorlashning eng yoqimli qismi — jarayon. Ayniqsa musiqa bo'lsa, umuman boshqacha kayfiyat bo'ladi. Maselko ham shuning uchun har xil taomlarga mos playlistlar tayyorlabdi, siz ham ulardan foydalanishingiz mumkin.</p>
+        <p style="font-family: var(--font-body); font-weight: 700; font-size: 17px; line-height: 1.5; color: var(--red-800); margin: 0 0 12px; text-wrap: pretty;">Ovqat tayyorlash uchun o'z playlistingizni yarating va biz bilan ulashing.</p>
+        <p style="font-family: var(--font-body); font-weight: 600; font-size: 15.5px; line-height: 1.55; color: var(--red-800); margin: 0; text-wrap: pretty;">Eng yaxshi playlistlar Maselko sahifasi va Highlights bo'limidan joy oladi.</p>
       </div>
-      <p style="font-family: var(--font-body); font-weight: 500; font-style: italic; font-size: 13px; line-height: 1.4; color: rgba(253,246,236,0.6); margin: 14px 4px 0;">Yoki o'z so'zlaringiz bilan shunga yaqin fikr aytishingiz mumkin.</p>
     </div>
   </section>
 
   <!-- ============ TALABLAR ============ -->
   <!-- <section style="background: #fdf6ec; padding: 54px 26px 54px;">
     <div data-reveal style="opacity: 0; transform: translateY(24px); transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);">
-      <div style="display: inline-flex; align-items: center; gap: 8px; margin-bottom: 14px;">
-        <span style="width: 26px; height: 2px; background: var(--red-400); border-radius: 2px;"></span>
-        <span style="font-family: var(--font-body); font-weight: 700; font-size: 11px; letter-spacing: 0.16em; color: var(--red-400); text-transform: uppercase;">E'tiborga oling</span>
-      </div>
       <h2 style="font-family: var(--font-display); font-weight: 900; font-size: clamp(28px, 8vw, 38px); line-height: 1.02; letter-spacing: -0.02em; color: var(--red-700); text-transform: uppercase; margin: 0 0 22px;">Talablar</h2>
 
       <div style="display: flex; flex-direction: column; gap: 12px;">
@@ -362,10 +344,10 @@ class Component extends DCLogic {
     });
     return {
       vazifa: [
-        "Maselko mahsulotidan foydalanib, o'zingiz sevgan pishiriq yoki taomni tayyorlang",
-        "Tayyorlash jarayonini videoga oling",
-        "Musiqa yoki Maselko playlistlarini tabiiy tarzda ko'rsating",
-        "Konkurs haqida e'lon qiling",
+        { n: '1', title: "Taom tayyorlang", text: "Maselko mahsulotlaridan foydalanib istalgan taomni tayyorlang." },
+        { n: '2', title: "Jarayonni videoga oling", text: "Faqat retseptni emas, aynan tayyorlash jarayonidagi kayfiyat, emotsiya va zavqni ko'rsating." },
+        { n: '3', title: "Musiqani qo'shing", text: "Maselko playlistlaridan foydalaning yoki o'zingizga yoqqan musiqa bilan videoni bezating." },
+        { n: '4', title: "Joylang va belgilang", text: "Videoni Instagram sahifangizga joylang. @Maselko sahifasini belgilang va #JarayondanZavqlaning xeshtegidan foydalaning." },
       ],
       steps: [
         { n: '1', t: "Maselko mahsulotlaridan foydalanib istalgan taom tayyorlang" },
