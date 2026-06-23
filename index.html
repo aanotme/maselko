@@ -65,6 +65,15 @@
     color: var(--red-700);
     box-shadow: 0 4px 10px rgba(40,8,5,0.22);
   }
+  html[lang="ru"] [data-i18n-html="hero.title"],
+  html[lang="ru"] [data-i18n="tasks.title"],
+  html[lang="ru"] [data-i18n="prize.title"],
+  html[lang="ru"] [data-i18n="playlist.title"],
+  html[lang="ru"] [data-i18n="important.title"],
+  html[lang="ru"] [data-i18n="prize.winners"],
+  html[lang="ru"] [data-i18n="prize.each"] {
+    text-transform: none !important;
+  }
   @media (min-width: 760px) {
     .msel-shell {
       max-width: 100% !important;
@@ -233,7 +242,7 @@ Maselko bilan sevimli taomingizni tayyorlang, jarayondan qanday zavqlanayotganin
 
       <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 24px;">
         <span style="display:inline-flex; align-items:center; padding: 9px 16px; border-radius: 999px; background: var(--red-400); color: #fff; font-weight: 800; font-size: 14px; letter-spacing: 0.01em; box-shadow: 0 6px 18px rgba(226,43,25,0.4);">#Maselko</span>
-        <span style="display:inline-flex; align-items:center; padding: 9px 16px; border-radius: 999px; background: rgba(253,246,236,0.14); border: 1px solid rgba(253,246,236,0.4); color: #fdf6ec; font-weight: 800; font-size: 14px; backdrop-filter: blur(6px);">#JarayondanZavqlaning</span>
+        <span data-i18n="hashtag.process" style="display:inline-flex; align-items:center; padding: 9px 16px; border-radius: 999px; background: rgba(253,246,236,0.14); border: 1px solid rgba(253,246,236,0.4); color: #fdf6ec; font-weight: 800; font-size: 14px; backdrop-filter: blur(6px);">#JarayondanZavqlaning</span>
       </div>
 
       <div style="display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-radius: 16px; background: rgba(253,246,236,0.1); border: 1px solid rgba(253,246,236,0.22); backdrop-filter: blur(8px);">
@@ -337,6 +346,17 @@ Maselko bilan sevimli taomingizni tayyorlang, jarayondan qanday zavqlanayotganin
     </div>
   </section>
 
+  <!-- ============ IMPORTANT ============ -->
+  <section class="msel-section msel-section--important" style="background: #fdf6ec; padding: 48px 26px 52px;">
+    <div class="msel-section-inner" data-reveal style="opacity: 0; transform: translateY(24px); transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);">
+      <h2 data-i18n="important.title" style="font-family: var(--font-display); font-weight: 900; font-size: clamp(28px, 8vw, 38px); line-height: 1.02; letter-spacing: -0.02em; color: var(--red-700); text-transform: uppercase; margin: 0 0 18px;">Muhim</h2>
+      <div style="background: var(--cream-500); border-radius: 20px; padding: 22px 20px; box-shadow: var(--shadow-sm); border: 1px solid rgba(146,30,23,0.08);">
+        <p data-i18n="important.copy1" style="font-family: var(--font-body); font-weight: 700; font-size: 16px; line-height: 1.5; color: var(--red-800); margin: 0 0 12px; text-wrap: pretty;">Bu tanlovda asosiysi taomning ideal tayyorlanishi emas, balki jarayondan oladigan zavqingiz.</p>
+        <p data-i18n="important.copy2" style="font-family: var(--font-body); font-weight: 600; font-size: 15.5px; line-height: 1.55; color: var(--ink-700); margin: 0; text-wrap: pretty;">Chunki eng yaxshi lahzalar ko'pincha natijada emas, aynan jarayonning o'zida tug'iladi.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ TALABLAR ============ -->
   <!-- <section style="background: #fdf6ec; padding: 54px 26px 54px;">
     <div data-reveal style="opacity: 0; transform: translateY(24px); transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);">
@@ -360,9 +380,9 @@ Maselko bilan sevimli taomingizni tayyorlang, jarayondan qanday zavqlanayotganin
         <span style="display:block; width: 3px; height: {{ b.h }}px; background: rgba(255,205,130,0.12); border-radius: 3px;"></span>
       </sc-for>
     </div>
-    <div class="msel-footer-inner" style="position: relative;">
+      <div class="msel-footer-inner" style="position: relative;">
       <div style="font-family: var(--font-display); font-weight: 900; font-size: clamp(30px, 9vw, 40px); line-height: 1.05; color: var(--gold-500); text-transform: none; letter-spacing: -0.01em; margin-bottom: 8px;">#Maselko</div>
-      <div style="font-family: var(--font-display); font-weight: 900; font-size: clamp(26px, 7.5vw, 34px); line-height: 1.05; color: #fdf6ec; letter-spacing: -0.01em; margin-bottom: 28px;">#JarayondanZavqlaning</div>
+      <div data-i18n="hashtag.process" style="font-family: var(--font-display); font-weight: 900; font-size: clamp(26px, 7.5vw, 34px); line-height: 1.05; color: #fdf6ec; letter-spacing: -0.01em; margin-bottom: 28px;">#JarayondanZavqlaning</div>
 
       <div class="msel-footer-cta" style="display: inline-flex; align-items: center; gap: 12px; padding: 14px 20px; border-radius: 999px; background: rgba(253,246,236,0.1); border: 1px solid rgba(253,246,236,0.24); margin-bottom: 30px;">
         <span style="flex: none; display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 50%; background: var(--gold-500); color: var(--red-700); font-weight: 900; font-size: 16px;">↑</span>
@@ -435,6 +455,7 @@ class Component extends DCLogic {
     uz: {
       "meta.title": "Maselko konkursi",
       "nav.contest": "KONKURS",
+      "hashtag.process": "#JarayondanZavqlaning",
       "hero.title": "MASELKO bilan <span style=\"color: var(--gold-500);\">jarayondan</span> zavqlaning!",
       "hero.copy": "Taom tayyorlash jarayoni siz uchun ham yoqimlimi? Maselko bilan sevimli taomingizni tayyorlang, jarayondan qanday zavqlanayotganingizni videoga oling va sovg'alarni qo'lga kiriting.",
       "hero.note": "Ishtirok etish uchun videongizni ijtimoiy tarmoqlarga joylang, <b style=\"color: var(--gold-300);\">@Maselko</b>'ni belgilang va <b style=\"color: var(--gold-300);\">#Maselko</b> xeshtegidan foydalaning.",
@@ -459,37 +480,44 @@ class Component extends DCLogic {
       "playlist.title": "Musiqani yaxshi ko'rasizmi?",
       "playlist.copy": "Ovqat tayyorlash uchun o'z playlistingizni yarating va biz bilan ulashing.",
       "playlist.note": "Eng yaxshi playlistlar Maselko sahifasi va Highlights bo'limidan joy oladi.",
+      "important.title": "Muhim",
+      "important.copy1": "Bu tanlovda asosiysi taomning ideal tayyorlanishi emas, balki jarayondan oladigan zavqingiz.",
+      "important.copy2": "Chunki eng yaxshi lahzalar ko'pincha natijada emas, aynan jarayonning o'zida tug'iladi.",
       "footer.cta": "Videongizni joylang va Maselko'ni belgilang - konkurs boshlandi!",
       "footer.family": "BUTUN OILA UCHUN"
     },
     ru: {
       "meta.title": "Конкурс Maselko",
       "nav.contest": "КОНКУРС",
-      "hero.title": "Наслаждайтесь <span style=\"color: var(--gold-500);\">процессом</span> вместе с MASELKO!",
-      "hero.copy": "Вам тоже нравится процесс приготовления? Приготовьте любимое блюдо с Maselko, снимите, как вы наслаждаетесь процессом, и выиграйте подарки.",
-      "hero.note": "Чтобы участвовать, опубликуйте видео в соцсетях, отметьте <b style=\"color: var(--gold-300);\">@Maselko</b> и используйте хештег <b style=\"color: var(--gold-300);\">#Maselko</b>.",
-      "tasks.title": "Как участвовать:",
+      "hashtag.process": "#ГотовьтеСУдовольствием",
+      "hero.title": "Maselko — <span style=\"color: var(--gold-500);\">готовьте с удовольствием</span>",
+      "hero.copy": "Любите сам процесс приготовления еды? Приготовьте любимое блюдо с продуктами Maselko, снимите видео о том, как вы наслаждаетесь процессом, и получите шанс выиграть подарки.",
+      "hero.note": "Разместите видео в Instagram. Отметьте аккаунт <b style=\"color: var(--gold-300);\">@Maselko</b> и добавьте хештег <b style=\"color: var(--gold-300);\">#ГотовьтеСУдовольствием</b>.",
+      "tasks.title": "Как принять участие:",
       "task.1.title": "Приготовьте блюдо",
-      "task.1.text": "Приготовьте любое блюдо с продуктами Maselko.",
-      "task.2.title": "Снимите процесс",
-      "task.2.text": "Покажите не только рецепт, а настроение, эмоции и удовольствие во время приготовления.",
+      "task.1.text": "Используйте продукты Maselko для приготовления любого блюда.",
+      "task.2.title": "Снимите процесс на видео",
+      "task.2.text": "Покажите не только рецепт, но и настроение, эмоции и удовольствие от приготовления.",
       "task.3.title": "Добавьте музыку",
-      "task.3.text": "Используйте плейлисты Maselko или украсьте видео любимой музыкой.",
-      "task.4.title": "Опубликуйте и отметьте",
-      "task.4.text": "Опубликуйте видео в Instagram. Отметьте страницу @Maselko и используйте хештег #JarayondanZavqlaning.",
+      "task.3.text": "Используйте плейлисты Maselko или добавьте свою любимую музыку.",
+      "task.4.title": "Опубликуйте и отметьте нас",
+      "task.4.text": "Разместите видео в Instagram. Отметьте аккаунт @Maselko и добавьте хештег #ГотовьтеСУдовольствием.",
       "prize.title": "Подарки",
       "prize.winners": "победителя",
       "prize.each": "Каждому победителю",
       "prize.bundle": "Миксер Kenwood + Maselko box",
       "prize.alt": "Планетарный миксер Kenwood",
-      "prize.copy": "Команда Maselko выберет 3 креативных участников, которые лучше всего покажут удовольствие от процесса.",
-      "prize.eachLine": "Каждый победитель:",
-      "prize.mixer": "\u{1F381} планетарный миксер Kenwood",
-      "prize.box": "\u{1F381} получит специальный box с продукцией Maselko.",
+      "prize.copy": "Команда Maselko выберет 3 самых креативных участников, которые лучше всего передали удовольствие от процесса приготовления.",
+      "prize.eachLine": "Каждый победитель получит:",
+      "prize.mixer": "\u{1F381} Планетарный миксер Kenwood",
+      "prize.box": "\u{1F381} Специальный бокс с продукцией Maselko",
       "playlist.title": "Любите музыку?",
       "playlist.copy": "Создайте свой плейлист для приготовления еды и поделитесь им с нами.",
-      "playlist.note": "Лучшие плейлисты появятся на странице Maselko и в разделе Highlights.",
-      "footer.cta": "Опубликуйте видео и отметьте Maselko - конкурс начался!",
+      "playlist.note": "Лучшие плейлисты будут опубликованы на странице Maselko и попадут в раздел Highlights.",
+      "important.title": "Важно",
+      "important.copy1": "В этом конкурсе главное не идеально приготовленное блюдо, а удовольствие, которое вы получаете от процесса.",
+      "important.copy2": "Потому что лучшие моменты часто рождаются не в результате, а именно в процессе.",
+      "footer.cta": "Разместите видео в Instagram, отметьте @Maselko и добавьте #ГотовьтеСУдовольствием.",
       "footer.family": "ДЛЯ ВСЕЙ СЕМЬИ"
     }
   };
