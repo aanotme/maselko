@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="uz">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maselko konkursi</title>
 <script src="./support.js"></script>
 </head>
 <body>
@@ -30,6 +31,40 @@
   }
   .msel-shell { width: 100%; max-width: 600px; }
   .msel-section-inner { width: 100%; }
+  .msel-header { gap: 12px; }
+  .msel-header-actions { display: flex; align-items: center; gap: 10px; margin-left: auto; }
+  .msel-language-switcher {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    padding: 3px;
+    border-radius: 999px;
+    background: rgba(253,246,236,0.14);
+    border: 1px solid rgba(253,246,236,0.34);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 16px rgba(40,8,5,0.2);
+  }
+  .msel-lang-option {
+    appearance: none;
+    border: 0;
+    min-width: 34px;
+    height: 28px;
+    padding: 0 8px;
+    border-radius: 999px;
+    background: transparent;
+    color: #fdf6ec;
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+  }
+  .msel-lang-option.is-active {
+    background: var(--gold-500);
+    color: var(--red-700);
+    box-shadow: 0 4px 10px rgba(40,8,5,0.22);
+  }
   @media (min-width: 760px) {
     .msel-shell {
       max-width: 100% !important;
@@ -148,10 +183,13 @@
     .msel-header img {
       height: 23px !important;
     }
-    .msel-header span {
+    .msel-campaign-kicker {
       font-size: 10px !important;
       letter-spacing: 0.12em !important;
     }
+    .msel-header-actions { gap: 7px; }
+    .msel-language-switcher { padding: 2px; }
+    .msel-lang-option { min-width: 30px; height: 25px; padding: 0 6px; font-size: 10px; }
   }
 </style>
 </helmet>
@@ -167,7 +205,13 @@
     <!-- top brand row -->
     <div class="msel-header" style="position: absolute; top: 0; left: 0; right: 0; z-index: 3; display: flex; align-items: center; justify-content: space-between; padding: 22px 24px;">
       <img src="assets/maselko_logo.svg" alt="Maselko" style="display: block; width: auto; height: 25px; filter: drop-shadow(0 2px 12px rgba(40,8,5,0.5));">
-      <span style="font-family: var(--font-body); font-weight: 700; font-size: 14px; letter-spacing: 0.18em; color: var(--gold-500); text-transform: uppercase;">KONKURS</span>
+      <div class="msel-header-actions">
+        <span class="msel-campaign-kicker" data-i18n="nav.contest" style="font-family: var(--font-body); font-weight: 700; font-size: 14px; letter-spacing: 0.18em; color: var(--gold-500); text-transform: uppercase;">KONKURS</span>
+        <div class="msel-language-switcher" role="group" aria-label="Language">
+          <button class="msel-lang-option is-active" type="button" data-lang-option="uz" aria-pressed="true">UZ</button>
+          <button class="msel-lang-option" type="button" data-lang-option="ru" aria-pressed="false">RU</button>
+        </div>
+      </div>
     </div>
 
     <!-- hero content -->
@@ -182,9 +226,9 @@
         <!-- <span style="font-family: var(--font-body); font-weight: 700; font-size: 11px; letter-spacing: 0.14em; color: var(--gold-300); text-transform: uppercase;">Pishir · Tingla · Zavqlan</span> -->
       </div>
 
-      <h1 style="font-family: var(--font-display); font-weight: 900; font-size: clamp(38px, 12vw, 58px); line-height: 0.98; letter-spacing: -0.02em; color: #fdf6ec; text-transform: uppercase; margin: 0 0 18px; text-shadow: 0 4px 30px rgba(40,8,5,0.45); text-wrap: balance;">MASELKO bilan <span style="color: var(--gold-500);">jarayondan</span> zavqlaning!</h1>
+      <h1 data-i18n-html="hero.title" style="font-family: var(--font-display); font-weight: 900; font-size: clamp(38px, 12vw, 58px); line-height: 0.98; letter-spacing: -0.02em; color: #fdf6ec; text-transform: uppercase; margin: 0 0 18px; text-shadow: 0 4px 30px rgba(40,8,5,0.45); text-wrap: balance;">MASELKO bilan <span style="color: var(--gold-500);">jarayondan</span> zavqlaning!</h1>
 
-      <p style="font-family: var(--font-body); font-weight: 500; font-size: 16px; line-height: 1.55; color: rgba(253,246,236,0.92); margin: 0 0 26px; max-width: 38ch; text-wrap: pretty;">Taom tayyorlash jarayoni siz uchun ham yoqimlimi?
+      <p data-i18n="hero.copy" style="font-family: var(--font-body); font-weight: 500; font-size: 16px; line-height: 1.55; color: rgba(253,246,236,0.92); margin: 0 0 26px; max-width: 38ch; text-wrap: pretty;">Taom tayyorlash jarayoni siz uchun ham yoqimlimi?
 Maselko bilan sevimli taomingizni tayyorlang, jarayondan qanday zavqlanayotganingizni videoga oling va sovg'alarni qo'lga kiriting.</p>
 
       <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 24px;">
@@ -194,7 +238,7 @@ Maselko bilan sevimli taomingizni tayyorlang, jarayondan qanday zavqlanayotganin
 
       <div style="display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-radius: 16px; background: rgba(253,246,236,0.1); border: 1px solid rgba(253,246,236,0.22); backdrop-filter: blur(8px);">
         <span style="flex: none; display: inline-flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 50%; background: var(--gold-500); color: var(--red-700); font-weight: 900; font-size: 18px;">!</span>
-        <span style="font-family: var(--font-body); font-weight: 600; font-size: 13.5px; line-height: 1.4; color: rgba(253,246,236,0.95);">Ishtirok etish uchun videongizni ijtimoiy tarmoqlarga joylang, <b style="color: var(--gold-300);">@Maselko</b>'ni belgilang va <b style="color: var(--gold-300);">#Maselko</b> xeshtegidan foydalaning.</span>
+        <span data-i18n-html="hero.note" style="font-family: var(--font-body); font-weight: 600; font-size: 13.5px; line-height: 1.4; color: rgba(253,246,236,0.95);">Ishtirok etish uchun videongizni ijtimoiy tarmoqlarga joylang, <b style="color: var(--gold-300);">@Maselko</b>'ni belgilang va <b style="color: var(--gold-300);">#Maselko</b> xeshtegidan foydalaning.</span>
       </div>
     </div>
   </section>
@@ -202,7 +246,7 @@ Maselko bilan sevimli taomingizni tayyorlang, jarayondan qanday zavqlanayotganin
   <!-- ============ VAZIFA / REELS ============ -->
   <section class="msel-section msel-section--tasks" style="background: linear-gradient(180deg, #faeedc 0%, #fdf6ec 100%); padding: 56px 26px 52px;">
     <div class="msel-section-inner" data-reveal style="opacity: 0; transform: translateY(24px); transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);">
-      <h2 style="font-family: var(--font-display); font-weight: 900; font-size: clamp(28px, 8vw, 38px); line-height: 1.02; letter-spacing: -0.02em; color: var(--red-700); text-transform: uppercase; margin: 0 0 22px;">Qatnashish uchun:</h2>
+      <h2 data-i18n="tasks.title" style="font-family: var(--font-display); font-weight: 900; font-size: clamp(28px, 8vw, 38px); line-height: 1.02; letter-spacing: -0.02em; color: var(--red-700); text-transform: uppercase; margin: 0 0 22px;">Qatnashish uchun:</h2>
 
       <!-- <image-slot id="msel-reels" src="assets/kid-salami.jpg" shape="rounded" radius="20" placeholder="[REELS IMAGE]" style="display: block; width: 100%; height: 210px; margin-bottom: 24px; box-shadow: var(--shadow-md);"></image-slot> -->
 
@@ -210,7 +254,7 @@ Maselko bilan sevimli taomingizni tayyorlang, jarayondan qanday zavqlanayotganin
         <sc-for list="{{ vazifa }}" as="item" hint-placeholder-count="4">
           <li style="display: flex; align-items: flex-start; gap: 14px; padding: 16px 18px; background: #fff; border-radius: 16px; box-shadow: var(--shadow-sm);">
             <span style="flex: none; display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 50%; background: var(--gold-500); color: var(--red-700); font-weight: 900; font-size: 16px;">{{ item.n }}</span>
-            <span style="font-family: var(--font-body); font-weight: 500; font-size: 15px; line-height: 1.45; color: var(--ink-700); text-wrap: pretty;"><b style="display: block; color: var(--red-700); font-weight: 900; margin-bottom: 3px;">{{ item.title }}</b>{{ item.text }}</span>
+            <span style="font-family: var(--font-body); font-weight: 500; font-size: 15px; line-height: 1.45; color: var(--ink-700); text-wrap: pretty;"><b data-i18n="{{ item.titleKey }}" style="display: block; color: var(--red-700); font-weight: 900; margin-bottom: 3px;">{{ item.title }}</b><span data-i18n="{{ item.textKey }}">{{ item.text }}</span></span>
           </li>
         </sc-for>
       </ul>
@@ -246,26 +290,26 @@ Maselko bilan sevimli taomingizni tayyorlang, jarayondan qanday zavqlanayotganin
   <section class="msel-section msel-section--prize" style="background: var(--red-700); padding: 54px 26px 56px; position: relative; overflow: hidden;">
     <div style="position: absolute; top: -40px; right: -40px; font-family: var(--font-display); font-weight: 900; font-size: 200px; color: rgba(255,205,130,0.06); line-height: 1; pointer-events: none; user-select: none;">М</div>
     <div class="msel-section-inner msel-prize-inner" data-reveal style="position: relative; opacity: 0; transform: translateY(24px); transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);">
-      <h2 style="font-family: var(--font-display); font-weight: 900; font-size: clamp(30px, 9vw, 42px); line-height: 1.0; letter-spacing: -0.02em; color: #fdf6ec; text-transform: uppercase; margin: 0 0 22px;">Sovg'alar</h2>
+      <h2 data-i18n="prize.title" style="font-family: var(--font-display); font-weight: 900; font-size: clamp(30px, 9vw, 42px); line-height: 1.0; letter-spacing: -0.02em; color: #fdf6ec; text-transform: uppercase; margin: 0 0 22px;">Sovg'alar</h2>
 
       <div class="msel-prize-cards" style="display: flex; gap: 12px; margin-bottom: 22px;">
         <div style="flex: 1; background: var(--gold-500); border-radius: 18px; padding: 18px 16px; text-align: center;">
           <div style="font-family: var(--font-display); font-weight: 900; font-size: 46px; line-height: 1; color: var(--red-700);">3</div>
-          <div style="font-family: var(--font-body); font-weight: 800; font-size: 12px; letter-spacing: 0.08em; color: var(--red-700); text-transform: uppercase; margin-top: 4px;">nafar g'olib</div>
+          <div data-i18n="prize.winners" style="font-family: var(--font-body); font-weight: 800; font-size: 12px; letter-spacing: 0.08em; color: var(--red-700); text-transform: uppercase; margin-top: 4px;">nafar g'olib</div>
         </div>
         <div style="flex: 2; background: rgba(255,205,130,0.14); border: 1px solid rgba(255,205,130,0.4); border-radius: 18px; padding: 18px; display: flex; flex-direction: column; justify-content: center;">
-          <div style="font-family: var(--font-body); font-weight: 700; font-size: 11px; letter-spacing: 0.1em; color: var(--gold-300); text-transform: uppercase; margin-bottom: 5px;">Har bir g'olib</div>
-          <div style="font-family: var(--font-display); font-weight: 900; font-size: 21px; line-height: 1.05; color: #fdf6ec;">Kenwood mikseri + Maselko box</div>
+          <div data-i18n="prize.each" style="font-family: var(--font-body); font-weight: 700; font-size: 11px; letter-spacing: 0.1em; color: var(--gold-300); text-transform: uppercase; margin-bottom: 5px;">Har bir g'olib</div>
+          <div data-i18n="prize.bundle" style="font-family: var(--font-display); font-weight: 900; font-size: 21px; line-height: 1.05; color: #fdf6ec;">Kenwood mikseri + Maselko box</div>
         </div>
       </div>
 
-      <img id="msel-prize" src="assets/kenwood-mixer.png" alt="Kenwood planetar mikseri" style="display: block; width: 100%; height: 240px; object-fit: contain; background: #fff; border-radius: 20px; margin-bottom: 22px; box-shadow: var(--shadow-lg); padding: 10px;">
+      <img id="msel-prize" src="assets/kenwood-mixer.png" alt="Kenwood planetar mikseri" data-i18n-attr-alt="prize.alt" style="display: block; width: 100%; height: 240px; object-fit: contain; background: #fff; border-radius: 20px; margin-bottom: 22px; box-shadow: var(--shadow-lg); padding: 10px;">
 
       <div class="msel-prize-text" style="font-family: var(--font-body); font-weight: 500; font-size: 15.5px; line-height: 1.55; color: rgba(253,246,236,0.92); margin: 0; text-wrap: pretty;">
-        <p style="margin: 0 0 14px;">Maselko jamoasi jarayondan zavqlanish hissini eng yaxshi ko'rsata olgan, kreativ 3 nafar ishtirokchini tanlaydi.</p>
-        <p style="margin: 0 0 10px; font-weight: 800; color: var(--gold-500);">Har bir g'olib:</p>
-        <p style="margin: 0 0 6px;">&#127873; Kenwood planetar mikseri</p>
-        <p style="margin: 0;">&#127873; Maselko mahsulotlaridan iborat maxsus box bilan taqdirlanadi.</p>
+        <p data-i18n="prize.copy" style="margin: 0 0 14px;">Maselko jamoasi jarayondan zavqlanish hissini eng yaxshi ko'rsata olgan, kreativ 3 nafar ishtirokchini tanlaydi.</p>
+        <p data-i18n="prize.eachLine" style="margin: 0 0 10px; font-weight: 800; color: var(--gold-500);">Har bir g'olib:</p>
+        <p data-i18n="prize.mixer" style="margin: 0 0 6px;">&#127873; Kenwood planetar mikseri</p>
+        <p data-i18n="prize.box" style="margin: 0;">&#127873; Maselko mahsulotlaridan iborat maxsus box bilan taqdirlanadi.</p>
       </div>
     </div>
   </section>
@@ -273,7 +317,7 @@ Maselko bilan sevimli taomingizni tayyorlang, jarayondan qanday zavqlanayotganin
   <!-- ============ PLAYLIST ============ -->
   <section class="msel-section msel-section--playlist" style="background: linear-gradient(180deg, #2a1411 0%, #3a1a14 100%); padding: 56px 26px 58px; position: relative; overflow: hidden;">
     <div class="msel-section-inner" data-reveal style="position: relative; opacity: 0; transform: translateY(24px); transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);">
-      <h2 style="font-family: var(--font-display); font-weight: 900; font-size: clamp(28px, 8vw, 38px); line-height: 1.02; letter-spacing: -0.02em; color: #fdf6ec; text-transform: uppercase; margin: 0 0 22px;">Musiqani yaxshi ko'rasizmi?</h2>
+      <h2 data-i18n="playlist.title" style="font-family: var(--font-display); font-weight: 900; font-size: clamp(28px, 8vw, 38px); line-height: 1.02; letter-spacing: -0.02em; color: #fdf6ec; text-transform: uppercase; margin: 0 0 22px;">Musiqani yaxshi ko'rasizmi?</h2>
 
       <!-- vinyl + image row -->
       <div class="msel-playlist-media" style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
@@ -287,8 +331,8 @@ Maselko bilan sevimli taomingizni tayyorlang, jarayondan qanday zavqlanayotganin
       </div>
 
       <div style="background: var(--gold-500); border-radius: 20px; padding: 24px 22px; box-shadow: var(--shadow-gold); position: relative;">
-        <p style="font-family: var(--font-body); font-weight: 700; font-size: 17px; line-height: 1.5; color: var(--red-800); margin: 0 0 12px; text-wrap: pretty;">Ovqat tayyorlash uchun o'z playlistingizni yarating va biz bilan ulashing.</p>
-        <p style="font-family: var(--font-body); font-weight: 600; font-size: 15.5px; line-height: 1.55; color: var(--red-800); margin: 0; text-wrap: pretty;">Eng yaxshi playlistlar Maselko sahifasi va Highlights bo'limidan joy oladi.</p>
+        <p data-i18n="playlist.copy" style="font-family: var(--font-body); font-weight: 700; font-size: 17px; line-height: 1.5; color: var(--red-800); margin: 0 0 12px; text-wrap: pretty;">Ovqat tayyorlash uchun o'z playlistingizni yarating va biz bilan ulashing.</p>
+        <p data-i18n="playlist.note" style="font-family: var(--font-body); font-weight: 600; font-size: 15.5px; line-height: 1.55; color: var(--red-800); margin: 0; text-wrap: pretty;">Eng yaxshi playlistlar Maselko sahifasi va Highlights bo'limidan joy oladi.</p>
       </div>
     </div>
   </section>
@@ -344,10 +388,10 @@ class Component extends DCLogic {
     });
     return {
       vazifa: [
-        { n: '1', title: "Taom tayyorlang", text: "Maselko mahsulotlaridan foydalanib istalgan taomni tayyorlang." },
-        { n: '2', title: "Jarayonni videoga oling", text: "Faqat retseptni emas, aynan tayyorlash jarayonidagi kayfiyat, emotsiya va zavqni ko'rsating." },
-        { n: '3', title: "Musiqani qo'shing", text: "Maselko playlistlaridan foydalaning yoki o'zingizga yoqqan musiqa bilan videoni bezating." },
-        { n: '4', title: "Joylang va belgilang", text: "Videoni Instagram sahifangizga joylang. @Maselko sahifasini belgilang va #JarayondanZavqlaning xeshtegidan foydalaning." },
+        { n: '1', titleKey: 'task.1.title', textKey: 'task.1.text', title: "Taom tayyorlang", text: "Maselko mahsulotlaridan foydalanib istalgan taomni tayyorlang." },
+        { n: '2', titleKey: 'task.2.title', textKey: 'task.2.text', title: "Jarayonni videoga oling", text: "Faqat retseptni emas, aynan tayyorlash jarayonidagi kayfiyat, emotsiya va zavqni ko'rsating." },
+        { n: '3', titleKey: 'task.3.title', textKey: 'task.3.text', title: "Musiqani qo'shing", text: "Maselko playlistlaridan foydalaning yoki o'zingizga yoqqan musiqa bilan videoni bezating." },
+        { n: '4', titleKey: 'task.4.title', textKey: 'task.4.text', title: "Joylang va belgilang", text: "Videoni Instagram sahifangizga joylang. @Maselko sahifasini belgilang va #JarayondanZavqlaning xeshtegidan foydalaning." },
       ],
       steps: [
         { n: '1', t: "Maselko mahsulotlaridan foydalanib istalgan taom tayyorlang" },
@@ -384,6 +428,158 @@ class Component extends DCLogic {
     if (this._revealTimer) clearTimeout(this._revealTimer);
   }
 }
+</script>
+<script>
+(() => {
+  const translations = {
+    uz: {
+      "meta.title": "Maselko konkursi",
+      "nav.contest": "KONKURS",
+      "hero.title": "MASELKO bilan <span style=\"color: var(--gold-500);\">jarayondan</span> zavqlaning!",
+      "hero.copy": "Taom tayyorlash jarayoni siz uchun ham yoqimlimi? Maselko bilan sevimli taomingizni tayyorlang, jarayondan qanday zavqlanayotganingizni videoga oling va sovg'alarni qo'lga kiriting.",
+      "hero.note": "Ishtirok etish uchun videongizni ijtimoiy tarmoqlarga joylang, <b style=\"color: var(--gold-300);\">@Maselko</b>'ni belgilang va <b style=\"color: var(--gold-300);\">#Maselko</b> xeshtegidan foydalaning.",
+      "tasks.title": "Qatnashish uchun:",
+      "task.1.title": "Taom tayyorlang",
+      "task.1.text": "Maselko mahsulotlaridan foydalanib istalgan taomni tayyorlang.",
+      "task.2.title": "Jarayonni videoga oling",
+      "task.2.text": "Faqat retseptni emas, aynan tayyorlash jarayonidagi kayfiyat, emotsiya va zavqni ko'rsating.",
+      "task.3.title": "Musiqani qo'shing",
+      "task.3.text": "Maselko playlistlaridan foydalaning yoki o'zingizga yoqqan musiqa bilan videoni bezating.",
+      "task.4.title": "Joylang va belgilang",
+      "task.4.text": "Videoni Instagram sahifangizga joylang. @Maselko sahifasini belgilang va #JarayondanZavqlaning xeshtegidan foydalaning.",
+      "prize.title": "Sovg'alar",
+      "prize.winners": "nafar g'olib",
+      "prize.each": "Har bir g'olib",
+      "prize.bundle": "Kenwood mikseri + Maselko box",
+      "prize.alt": "Kenwood planetar mikseri",
+      "prize.copy": "Maselko jamoasi jarayondan zavqlanish hissini eng yaxshi ko'rsata olgan, kreativ 3 nafar ishtirokchini tanlaydi.",
+      "prize.eachLine": "Har bir g'olib:",
+      "prize.mixer": "\u{1F381} Kenwood planetar mikseri",
+      "prize.box": "\u{1F381} Maselko mahsulotlaridan iborat maxsus box bilan taqdirlanadi.",
+      "playlist.title": "Musiqani yaxshi ko'rasizmi?",
+      "playlist.copy": "Ovqat tayyorlash uchun o'z playlistingizni yarating va biz bilan ulashing.",
+      "playlist.note": "Eng yaxshi playlistlar Maselko sahifasi va Highlights bo'limidan joy oladi.",
+      "footer.cta": "Videongizni joylang va Maselko'ni belgilang - konkurs boshlandi!",
+      "footer.family": "BUTUN OILA UCHUN"
+    },
+    ru: {
+      "meta.title": "Конкурс Maselko",
+      "nav.contest": "КОНКУРС",
+      "hero.title": "Наслаждайтесь <span style=\"color: var(--gold-500);\">процессом</span> вместе с MASELKO!",
+      "hero.copy": "Вам тоже нравится процесс приготовления? Приготовьте любимое блюдо с Maselko, снимите, как вы наслаждаетесь процессом, и выиграйте подарки.",
+      "hero.note": "Чтобы участвовать, опубликуйте видео в соцсетях, отметьте <b style=\"color: var(--gold-300);\">@Maselko</b> и используйте хештег <b style=\"color: var(--gold-300);\">#Maselko</b>.",
+      "tasks.title": "Как участвовать:",
+      "task.1.title": "Приготовьте блюдо",
+      "task.1.text": "Приготовьте любое блюдо с продуктами Maselko.",
+      "task.2.title": "Снимите процесс",
+      "task.2.text": "Покажите не только рецепт, а настроение, эмоции и удовольствие во время приготовления.",
+      "task.3.title": "Добавьте музыку",
+      "task.3.text": "Используйте плейлисты Maselko или украсьте видео любимой музыкой.",
+      "task.4.title": "Опубликуйте и отметьте",
+      "task.4.text": "Опубликуйте видео в Instagram. Отметьте страницу @Maselko и используйте хештег #JarayondanZavqlaning.",
+      "prize.title": "Подарки",
+      "prize.winners": "победителя",
+      "prize.each": "Каждому победителю",
+      "prize.bundle": "Миксер Kenwood + Maselko box",
+      "prize.alt": "Планетарный миксер Kenwood",
+      "prize.copy": "Команда Maselko выберет 3 креативных участников, которые лучше всего покажут удовольствие от процесса.",
+      "prize.eachLine": "Каждый победитель:",
+      "prize.mixer": "\u{1F381} планетарный миксер Kenwood",
+      "prize.box": "\u{1F381} получит специальный box с продукцией Maselko.",
+      "playlist.title": "Любите музыку?",
+      "playlist.copy": "Создайте свой плейлист для приготовления еды и поделитесь им с нами.",
+      "playlist.note": "Лучшие плейлисты появятся на странице Maselko и в разделе Highlights.",
+      "footer.cta": "Опубликуйте видео и отметьте Maselko - конкурс начался!",
+      "footer.family": "ДЛЯ ВСЕЙ СЕМЬИ"
+    }
+  };
+
+  let currentLanguage = "uz";
+  let isApplying = false;
+  document.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-lang-option]");
+    if (!button) return;
+    applyLanguage(button.dataset.langOption || "uz", true);
+  });
+
+  const getStoredLanguage = () => {
+    try {
+      return localStorage.getItem("maselko-language");
+    } catch (_err) {
+      return null;
+    }
+  };
+
+  const setStoredLanguage = (lang) => {
+    try {
+      localStorage.setItem("maselko-language", lang);
+    } catch (_err) {}
+  };
+
+  const textFor = (lang, key) => translations[lang]?.[key] ?? translations.uz[key] ?? "";
+
+  function applyLanguage(lang, persist = false) {
+    if (!translations[lang]) lang = "uz";
+    currentLanguage = lang;
+    isApplying = true;
+
+    document.documentElement.lang = lang;
+    document.title = textFor(lang, "meta.title");
+
+    document.querySelectorAll("[data-i18n]").forEach((el) => {
+      const value = textFor(lang, el.dataset.i18n);
+      if (value) el.textContent = value;
+    });
+    document.querySelectorAll("[data-i18n-html]").forEach((el) => {
+      const value = textFor(lang, el.dataset.i18nHtml);
+      if (value) el.innerHTML = value;
+    });
+    document.querySelectorAll("[data-i18n-attr-alt]").forEach((el) => {
+      const value = textFor(lang, el.dataset.i18nAttrAlt);
+      if (value) el.setAttribute("alt", value);
+    });
+
+    const footerIcon = document.querySelector(".msel-footer-cta span:first-child");
+    const footerCta = document.querySelector(".msel-footer-cta span:nth-child(2)");
+    const familyMark = document.querySelector(".msel-footer-inner > div:last-child span");
+    if (footerIcon) footerIcon.textContent = "\u2191";
+    if (footerCta) footerCta.textContent = textFor(lang, "footer.cta");
+    if (familyMark) familyMark.textContent = textFor(lang, "footer.family");
+
+    document.querySelectorAll("[data-lang-option]").forEach((button) => {
+      const active = button.dataset.langOption === lang;
+      button.classList.toggle("is-active", active);
+      button.setAttribute("aria-pressed", active ? "true" : "false");
+    });
+
+    if (persist) setStoredLanguage(lang);
+    requestAnimationFrame(() => { isApplying = false; });
+  }
+
+  const refreshLanguage = () => {
+    applyLanguage(currentLanguage, false);
+  };
+
+  const start = () => {
+    const stored = getStoredLanguage();
+    currentLanguage = translations[stored] ? stored : "uz";
+    refreshLanguage();
+
+    const observer = new MutationObserver(() => {
+      if (isApplying) return;
+      requestAnimationFrame(refreshLanguage);
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+    setTimeout(refreshLanguage, 120);
+    setTimeout(refreshLanguage, 900);
+  };
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", start);
+  } else {
+    start();
+  }
+})();
 </script>
 </body>
 </html>
